@@ -1,120 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GTL Labs | Smart Contracts for the Real World</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/Maxsweet1/gtl-labs-site/main/favicon.png" type="image/png">
-  <style>
-    :root {
-      --primary: #1a1a1a;
-      --accent: #9333ea;
-      --light: #f5f5f5;
-      --font: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      margin: 0;
-      font-family: var(--font);
-      background-color: var(--primary);
-      color: var(--light);
-    }
-
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
-      background-color: #121212;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      color: var(--accent);
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-    }
-
-    h2 {
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.5rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
-      background-color: #111;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProofHarvest - Trust You Can Track</title>
+    <style>
+        @page {
+            size: 8.5in 11in;
+            margin: 0.75in;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            max-width: 8.5in;
+            min-height: 10in;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #4c8c4a 0%, #3a6b38 100%);
+            color: white;
+            padding: 2rem 2rem 1.5rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .primary-logo {
+            margin-right: 1rem;
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+        
+        /* Content Sections */
+        .content {
+            padding: 0 1rem;
+        }
+        
+        .section {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #4c8c4a;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .section h2 {
+            color: #4c8c4a;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .section p {
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+        
+        /* Problem Section */
+        .problem {
+            border-left-color: #e67e22;
+        }
+        
+        .problem h2 {
+            color: #e67e22;
+        }
+        
+        /* Benefits Section */
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4c8c4a;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* How It Works */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #4c8c4a;
+        }
+        
+        .step-number {
+            background: #4c8c4a;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Battle Tested Badge */
+        .cert-badge {
+            width: 60px;
+            height: 60px;
+            float: right;
+            margin: -10px -10px 10px 20px;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, #4c8c4a 0%, #3a6b38 100%);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .cta h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.2);
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .demo-note {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            border-left: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .page {
+                box-shadow: none;
+                margin: 0;
+                max-width: none;
+            }
+            
+            .header, .cta {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>GTL Labs</h1>
-    <p>Smart Contracts for the Real World</p>
-    <p><em>We Build Tools, Not Tokens</em></p>
-  </header>
-
-  <section>
-    <h2>About GTL Labs</h2>
-    <p>GTL Labs is a Web3 consulting and development brand founded by Greg Thompson-Lowe. We specialize in milestone-based smart contracts, real-world asset tokenization, and decentralized tools for people who actually need them.</p>
-    <p>From agriculture to escrow to RWA protocols, we build code that works in the field—not just in Figma.</p>
-  </section>
-
-  <section>
-    <h2>Consulting Services</h2>
-    <ul>
-      <li>📄 Smart Contract Architecture & Audits</li>
-      <li>🌎 Tokenizing Real-World Assets (RWAs)</li>
-      <li>🤝 Blockchain Pilot Projects for NGOs & Co-ops</li>
-      <li>📊 DeFi Tokenomics, Yield & Liquidity Strategy</li>
-      <li>📬 Grant Writing & Pitch Deck Support</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Flagship Project: ProofHarvest</h2>
-    <p>ProofHarvest is a decentralized milestone-based escrow platform designed for smallholder farmers in Colombia. Built by GTL Labs, it lets growers raise funding, lock in stablecoin payments, and release funds only on delivery—all powered by smart contracts and Chainlink oracles.</p>
-    <a class="button" href="https://github.com/Maxsweet1/Grepository" target="_blank">View on GitHub</a>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>GTL Labs is available for consulting, prototyping, and collaboration.</p>
-    <p>Email: <a href="mailto:gtlowe@hotmail.com" style="color: var(--accent);">gtlowe@hotmail.com</a><br>
-       GitHub: <a href="https://github.com/Maxsweet1" target="_blank" style="color: var(--accent);">Maxsweet1</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 GTL Labs. Built by Greg Thompson-Lowe. Powered by long days, smart contracts, and a dream.
-  </footer>
+    <div class="page">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="header-text">
+                    <h1>🌱 ProofHarvest</h1>
+                    <div class="tagline">Trust You Can Track: Escrow Built for Real Farmers and Ethical Buyers</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Problem Section -->
+            <div class="section problem">
+                <h2>The Problem</h2>
+                <p>Small-scale farmers often face income losses due to delayed payments, broken agreements, and the absence of verifiable records in supply chains. Without transparent systems, both buyers and suppliers operate on hope rather than trust—leading to disputes, cash flow problems, and broken relationships that hurt everyone involved.</p>
+            </div>
+            
+            <!-- Solution Section -->
+            <div class="section">
+                <h2>Our Solution</h2>
+                <p><strong>ProofHarvest</strong>: A milestone-based smart escrow system that creates trust through transparency:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Locks payments securely until predefined conditions are met</li>
+                    <li>Releases funds automatically as each milestone is verified</li>
+                    <li>Creates transparent, immutable records that prove ethical transactions happened</li>
+                </ul>
+            </div>
+            
+            <!-- How It Works -->
+            <div class="section">
+                <h2>How It Works</h2>
+                <div class="process">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Create Agreement</strong><br>
+                        Define custom milestones with specific verification requirements
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Secure Funds</strong><br>
+                        Buyer's payment is locked in blockchain escrow (USDC)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Verify Progress</strong><br>
+                        Each milestone requires documented proof of completion
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Release Payment</strong><br>
+                        Funds transfer directly to supplier upon verification
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Benefits Section -->
+            <div class="section benefits">
+                <h2>What You Get</h2>
+                <ul>
+                    <li><strong>Buyers get:</strong> Risk protection, delivery verification, and proof of ethical sourcing practices</li>
+                    <li><strong>Suppliers get:</strong> Guaranteed payment, improved cash flow, and peace of mind that agreements will be honored</li>
+                    <li><strong>Everyone gets:</strong> Shared records, trust without spreadsheets, and fewer headaches dealing with disputes</li>
+                </ul>
+            </div>
+            
+            <!-- Battle Tested -->
+            <div class="section">
+                <h2>Battle-Tested Results</h2>
+                <p>Already tested on a real Colombian–U.S. fruit supply chain. This isn't theory—it's a working solution that's been through the mango trenches and proven effective in actual agricultural transactions.</p>
+            </div>
+            
+            <!-- Ready for Implementation -->
+            <div class="section">
+                <h2>Ready for Implementation</h2>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Live and functional on Sepolia blockchain testnet</li>
+                    <li>Custom deployment and setup within 2 weeks</li>
+                    <li>Simple, non-technical user interface that anyone can use</li>
+                    <li>No cryptocurrency expertise required for daily operations</li>
+                    <li>Complete training and support included</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta">
+            <h3>Your Next Step</h3>
+            <p>See ProofHarvest in action with our interactive demo, or schedule a 15-minute call to discuss how it can work for your specific supply chain needs.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="mailto:gtlowe@hotmail.com?subject=ProofHarvest Demo Request&body=Hi, I'd like to see a demo of ProofHarvest for my agricultural business. Please let me know when we can schedule a call." style="color: white; text-decoration: none;">📧 Contact Email</a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://maxsweet1.github.io/proofharvest-demo" target="_blank" style="color: white; text-decoration: none;">🌐 Try Live Demo</a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://github.com/Maxsweet1" target="_blank" style="color: white; text-decoration: none;">💼 Portfolio</a>
+                </div>
+            </div>
+            
+            <div class="demo-note">
+                <strong>📱 Demo Instructions:</strong> Click "Try Live Demo" → Connect Wallet → Create New Escrow → Click "🚀 Fill Sample Data" to see a $5,000 agricultural escrow in action
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            Built by technologists who care about trust more than buzzwords.
+        </div>
+    </div>
 </body>
 </html>
 
