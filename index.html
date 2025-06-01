@@ -3,364 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProofHarvest - Trust You Can Track</title>
+    <title>GTL Labs - Secure Escrow Services</title>
     <style>
-        @page {
-            size: 8.5in 11in;
-            margin: 0.75in;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
             color: #333;
             background: white;
-        }
-        
-        .page {
+            padding: 2rem;
             max-width: 8.5in;
-            min-height: 10in;
             margin: 0 auto;
-            background: white;
-            position: relative;
         }
-        
-        /* Header Section */
+
         .header {
-            background: linear-gradient(135deg, #4c8c4a 0%, #3a6b38 100%);
-            color: white;
-            padding: 2rem 2rem 1.5rem 2rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
+            border-bottom: 3px solid #228B22;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
         }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            transform: translate(30px, -30px);
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .primary-logo {
-            margin-right: 1rem;
-        }
-        
-        .header-text h1 {
+
+        .company-name {
             font-size: 2.5rem;
             font-weight: bold;
+            color: #228B22;
             margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .tagline {
-            font-size: 1.1rem;
-            font-weight: 300;
-            opacity: 0.95;
-        }
-        
-        /* Content Sections */
-        .content {
-            padding: 0 1rem;
-        }
-        
-        .section {
-            margin-bottom: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-left: 4px solid #4c8c4a;
-            padding: 1.5rem;
-            position: relative;
-        }
-        
-        .section h2 {
-            color: #4c8c4a;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .section p {
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-        
-        /* Problem Section */
-        .problem {
-            border-left-color: #e67e22;
-        }
-        
-        .problem h2 {
-            color: #e67e22;
-        }
-        
-        /* Benefits Section */
-        .benefits ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .benefits li {
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .benefits li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #4c8c4a;
-            font-weight: bold;
             font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 0.5rem;
         }
-        
-        /* How It Works */
-        .process {
+
+        .contact-info {
+            font-size: 1rem;
+            color: #8B4513;
+            font-weight: 500;
+        }
+
+        .value-prop {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .value-prop h2 {
+            color: #228B22;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-prop p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .service-card.popular {
+            border-color: #228B22;
+            background: rgba(34, 139, 34, 0.05);
+        }
+
+        .service-card.enterprise {
+            border-color: #8B4513;
+            background: rgba(139, 69, 19, 0.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .popular-badge {
+            background: #228B22;
+        }
+
+        .enterprise-badge {
+            background: #8B4513;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            list-style: none;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .features li {
+            margin-bottom: 0.25rem;
+            color: #666;
+        }
+
+        .features li::before {
+            content: "✓ ";
+            color: #228B22;
+            font-weight: bold;
+        }
+
+        .case-study {
+            background: #f8f9fa;
+            border-left: 5px solid #228B22;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-study h3 {
+            color: #228B22;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefits {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-top: 1rem;
+            font-size: 0.95rem;
         }
-        
-        .step {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 3px solid #4c8c4a;
-        }
-        
-        .step-number {
-            background: #4c8c4a;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        /* Battle Tested Badge */
-        .cert-badge {
-            width: 60px;
-            height: 60px;
-            float: right;
-            margin: -10px -10px 10px 20px;
-        }
-        
-        /* Call to Action */
-        .cta {
-            background: linear-gradient(135deg, #4c8c4a 0%, #3a6b38 100%);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-        }
-        
-        .cta h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .contact-info {
+
+        .benefit {
             display: flex;
-            justify-content: space-around;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 0.5rem;
         }
-        
-        .contact-item {
-            background: rgba(255,255,255,0.2);
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: background 0.3s ease;
-            cursor: pointer;
+
+        .benefit-icon {
+            font-size: 1.2rem;
         }
-        
-        .contact-item:hover {
-            background: rgba(255,255,255,0.3);
+
+        .comparison {
+            margin-bottom: 2rem;
         }
-        
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .demo-note {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            border-left: 3px solid rgba(255,255,255,0.3);
-        }
-        
-        /* Footer */
-        .footer {
+
+        .comparison h3 {
             text-align: center;
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 2px solid #f0f0f0;
-            color: #666;
-            font-size: 0.9rem;
-            font-style: italic;
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
-        
-        /* Print Styles */
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background: #228B22;
+            color: white;
+            font-weight: bold;
+        }
+
+        .gtl-column {
+            background: rgba(34, 139, 34, 0.1);
+            font-weight: bold;
+        }
+
+        .check { color: #228B22; font-size: 1.2rem; }
+        .cross { color: #dc3545; font-size: 1.2rem; }
+        .slow { color: #fd7e14; font-size: 1.2rem; }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .demos {
+            text-align: left;
+        }
+
+        .demos h4 {
+            color: #228B22;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-links {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .cta {
+            text-align: right;
+        }
+
+        .cta h4 {
+            color: #8B4513;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .email {
+            color: #228B22;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
         @media print {
-            .page {
-                box-shadow: none;
-                margin: 0;
-                max-width: none;
+            body {
+                padding: 1rem;
             }
             
-            .header, .cta {
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
+            .service-card {
+                break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="logo-container">
-                <div class="header-text">
-                    <h1>🌱 ProofHarvest</h1>
-                    <div class="tagline">Trust You Can Track: Escrow Built for Real Farmers and Ethical Buyers</div>
-                </div>
+    <!-- Header -->
+    <div class="header">
+        <div class="company-name">GTL Labs</div>
+        <div class="tagline">Secure, Managed Escrow for Real-World Trade</div>
+        <div class="contact-info">gtlowe@hotmail.com</div>
+    </div>
+
+    <!-- Value Proposition -->
+    <div class="value-prop">
+        <h2>We simplify milestone-based payments using blockchain—without making you learn blockchain</h2>
+        <p><strong>🛡️ Payment Protection</strong> • <strong>⚡ Instant Releases</strong> • <strong>🌍 Global Scale</strong></p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+        <!-- Tier 1 -->
+        <div class="service-card popular">
+            <div class="badge popular-badge">Most Popular</div>
+            <div class="service-icon">🌱</div>
+            <h3>Managed Escrow</h3>
+            <div class="price">$500 + 2%</div>
+            <ul class="features">
+                <li>We handle everything</li>
+                <li>Simple milestone tracking</li>
+                <li>24-hour setup</li>
+                <li>Email-only management</li>
+                <li>Perfect for first-time users</li>
+            </ul>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="service-card">
+            <div class="service-icon">🚀</div>
+            <h3>Custom Workflow</h3>
+            <div class="price">$2,000 + 1.5%</div>
+            <ul class="features">
+                <li>Interactive dashboards</li>
+                <li>Multi-party verification</li>
+                <li>Custom milestone logic</li>
+                <li>Automated notifications</li>
+                <li>Your branding included</li>
+            </ul>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="service-card enterprise">
+            <div class="badge enterprise-badge">Enterprise</div>
+            <div class="service-icon">🏢</div>
+            <h3>White-Label Platform</h3>
+            <div class="price">$10,000+</div>
+            <ul class="features">
+                <li>Complete platform ownership</li>
+                <li>Enterprise integrations</li>
+                <li>Custom business logic</li>
+                <li>Ongoing support included</li>
+                <li>Multi-region deployment</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Case Study -->
+    <div class="case-study">
+        <h3>🥭 Real Business, Real Results: Nutridos Food (USA/Colombia)</h3>
+        <p style="margin-bottom: 1rem;">As a US company working with Colombian suppliers, I built this escrow system for my own dehydrated fruit export business. Instead of using expensive apps like Remitly, I now release milestone payments instantly with the click of a button.</p>
+        
+        <div class="benefits">
+            <div class="benefit">
+                <span class="benefit-icon">🚀</span>
+                <span><strong>Faster Payments:</strong> Instant vs 3-5 days</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">💰</span>
+                <span><strong>Lower Costs:</strong> 1.5% vs 5-8% fees</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🎯</span>
+                <span><strong>Better Control:</strong> Pay when milestones met</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">📈</span>
+                <span><strong>Built to Scale:</strong> Ready for other countries</span>
             </div>
         </div>
-        
-        <div class="content">
-            <!-- Problem Section -->
-            <div class="section problem">
-                <h2>The Problem</h2>
-                <p>Small-scale farmers often face income losses due to delayed payments, broken agreements, and the absence of verifiable records in supply chains. Without transparent systems, both buyers and suppliers operate on hope rather than trust—leading to disputes, cash flow problems, and broken relationships that hurt everyone involved.</p>
-            </div>
-            
-            <!-- Solution Section -->
-            <div class="section">
-                <h2>Our Solution</h2>
-                <p><strong>ProofHarvest</strong>: A milestone-based smart escrow system that creates trust through transparency:</p>
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                    <li>Locks payments securely until predefined conditions are met</li>
-                    <li>Releases funds automatically as each milestone is verified</li>
-                    <li>Creates transparent, immutable records that prove ethical transactions happened</li>
-                </ul>
-            </div>
-            
-            <!-- How It Works -->
-            <div class="section">
-                <h2>How It Works</h2>
-                <div class="process">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Create Agreement</strong><br>
-                        Define custom milestones with specific verification requirements
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Secure Funds</strong><br>
-                        Buyer's payment is locked in blockchain escrow (USDC)
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Verify Progress</strong><br>
-                        Each milestone requires documented proof of completion
-                    </div>
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Release Payment</strong><br>
-                        Funds transfer directly to supplier upon verification
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Benefits Section -->
-            <div class="section benefits">
-                <h2>What You Get</h2>
-                <ul>
-                    <li><strong>Buyers get:</strong> Risk protection, delivery verification, and proof of ethical sourcing practices</li>
-                    <li><strong>Suppliers get:</strong> Guaranteed payment, improved cash flow, and peace of mind that agreements will be honored</li>
-                    <li><strong>Everyone gets:</strong> Shared records, trust without spreadsheets, and fewer headaches dealing with disputes</li>
-                </ul>
-            </div>
-            
-            <!-- Battle Tested -->
-            <div class="section">
-                <h2>Battle-Tested Results</h2>
-                <p>Already tested on a real Colombian–U.S. fruit supply chain. This isn't theory—it's a working solution that's been through the mango trenches and proven effective in actual agricultural transactions.</p>
-            </div>
-            
-            <!-- Ready for Implementation -->
-            <div class="section">
-                <h2>Ready for Implementation</h2>
-                <ul style="margin-left: 1.5rem;">
-                    <li>Live and functional on Sepolia blockchain testnet</li>
-                    <li>Custom deployment and setup within 2 weeks</li>
-                    <li>Simple, non-technical user interface that anyone can use</li>
-                    <li>No cryptocurrency expertise required for daily operations</li>
-                    <li>Complete training and support included</li>
-                </ul>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison">
+        <h3>How We Compare</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th class="gtl-column">GTL Labs</th>
+                    <th>Bank Escrow</th>
+                    <th>No Escrow</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Setup Time</strong></td>
+                    <td class="gtl-column">24 hours <span class="check">✓</span></td>
+                    <td>2-4 weeks <span class="slow">⏰</span></td>
+                    <td>0 min <span class="cross">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>International Payments</strong></td>
+                    <td class="gtl-column">Instant <span class="check">✓</span></td>
+                    <td>3-5 days <span class="slow">⏰</span></td>
+                    <td>Pray <span class="cross">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Fees</strong></td>
+                    <td class="gtl-column">1.5-2% <span class="check">✓</span></td>
+                    <td>5-8% <span class="cross">❌</span></td>
+                    <td>100% if scammed <span class="cross">❌</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Milestone Control</strong></td>
+                    <td class="gtl-column">Built-in <span class="check">✓</span></td>
+                    <td>Complex <span class="slow">⏰</span></td>
+                    <td>None <span class="cross">❌</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="demos">
+            <h4>📱 Try Our Demos</h4>
+            <div class="demo-links">
+                <strong>🌱 Simple Demo:</strong> Owner-controlled managed escrow<br>
+                <strong>🚀 Advanced Demo:</strong> Multi-party verification workflows<br><br>
+                <em>Both demos available at our consulting page</em>
             </div>
         </div>
-        
-        <!-- Call to Action -->
+
         <div class="cta">
-            <h3>Your Next Step</h3>
-            <p>See ProofHarvest in action with our interactive demo, or schedule a 15-minute call to discuss how it can work for your specific supply chain needs.</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <a href="mailto:gtlowe@hotmail.com?subject=ProofHarvest Demo Request&body=Hi, I'd like to see a demo of ProofHarvest for my agricultural business. Please let me know when we can schedule a call." style="color: white; text-decoration: none;">📧 Contact Email</a>
-                </div>
-                <div class="contact-item">
-                    <a href="https://maxsweet1.github.io/proofharvest-demo" target="_blank" style="color: white; text-decoration: none;">🌐 Try Live Demo</a>
-                </div>
-                <div class="contact-item">
-                    <a href="https://github.com/Maxsweet1" target="_blank" style="color: white; text-decoration: none;">💼 Portfolio</a>
-                </div>
-            </div>
-            
-            <div class="demo-note">
-                <strong>📱 Demo Instructions:</strong> Click "Try Live Demo" → Connect Wallet → Create New Escrow → Click "🚀 Fill Sample Data" to see a $5,000 agricultural escrow in action
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            Built by technologists who care about trust more than buzzwords.
+            <h4>📧 Get Your Project Quote</h4>
+            <p>Tell us about your project via email.</p>
+            <p>We'll respond within 24 hours with a custom quote.</p>
+            <div class="email">gtlowe@hotmail.com</div>
         </div>
     </div>
 </body>
 </html>
-
